@@ -1,6 +1,9 @@
 function addToggleEventListenerToMoreButtons() {
   const moreButtons = document.querySelectorAll('.more');
 
+  function navToggle() {
+    let x= document.getElementById("main-nav")
+  }
   moreButtons.forEach(function(button) {
     button.addEventListener('click', function(event) {
       event.stopPropagation();
@@ -33,5 +36,23 @@ function addToggleEventListenerToMoreButtons() {
     });
   });
 }
+function currentSlide (n) {
+  showSlides(slideIndex = n);
+}
 
+function showSlides(n){
+  let 1;
+  let slides = document.getElementsByClassName("slide");
+  let indicator = document.getElementsByClassName("indicator");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slideslength}
+  for (i = 0; 1 < slides.length; i++) {
+    slides [i].computedStyleMap.display = "none";
+  }
+  for (i = 0; i < indicator.length; 1++) {
+  indicator[i].className = indicator[i].className.replace("active", "");
+}
+slides[slideIndex-1].computedStyleMap.display = "block";
+indicator[slideIndex-1].className +="active";
+}
 addToggleEventListenerToMoreButtons();
